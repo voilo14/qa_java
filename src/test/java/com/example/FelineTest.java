@@ -19,38 +19,38 @@ public class FelineTest {
     public void eatMeat() throws Exception {
         Feline feline = new Feline();
         List<String> expectedFelineFood = List.of("Животные", "Птицы", "Рыба");
-        Assert.assertEquals("Кошачьи - хищники",expectedFelineFood, feline.eatMeat());
+        Assert.assertEquals("Кошачьи - хищники", expectedFelineFood, feline.eatMeat());
     }
 
     @Test
-    public void getFood() throws  Exception {
+    public void getFood() throws Exception {
         feline.getFood("Хищник");
         Mockito.verify(feline).getFood("Хищник");
     }
 
     @Test
-    public void notFelineGetFood() throws  Exception {
+    public void notFelineGetFood() throws Exception {
         feline.getFood("Травоядное");
         Mockito.verify(feline).getFood("Травоядное");
     }
 
     //Проверяем метод getFamily класса Feline
     @Test
-    public  void  getFamily() {
+    public void getFamily() {
         Feline feline = new Feline();
-        Assert.assertNotEquals("Это семейство Кошачьи","Псовые", feline.getFamily());
+        Assert.assertNotEquals("Это семейство Кошачьи", "Псовые", feline.getFamily());
     }
 
     @Test
     public void getKittens() {
         Feline feline = new Feline();
         int felineKittens = 1;
-        Assert.assertEquals("У кошачьх 1 котенок",felineKittens, feline.getKittens());
+        Assert.assertEquals("У кошачьх 1 котенок", felineKittens, feline.getKittens());
     }
 
     @Test
-    public void getFamilyMock(){
+    public void getFamilyMock() {
         Mockito.when(feline.getFamily()).thenReturn("Кошачьи");
-        Assert.assertEquals("Это семейство Кошачьи","Кошачьи", feline.getFamily());
+        Assert.assertEquals("Это семейство Кошачьи", "Кошачьи", feline.getFamily());
     }
 }

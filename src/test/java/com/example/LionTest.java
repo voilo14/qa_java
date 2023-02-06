@@ -14,8 +14,8 @@ public class LionTest {
     Feline feline;
 
     @Test
-    public  void lionGetFood () throws Exception {
-        Lion lion = new Lion (feline, "Самец");
+    public void lionGetFood() throws Exception {
+        Lion lion = new Lion(feline, "Самец");
         lion.getFood();
         Mockito.verify(feline).getFood("Хищник");
     }

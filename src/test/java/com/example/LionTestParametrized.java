@@ -9,10 +9,10 @@ import org.mockito.MockitoAnnotations;
 
 @RunWith(Parameterized.class)
 public class LionTestParametrized {
-    private  String sex;
-    private boolean hasMane;
+    private final String sex;
+    private final boolean hasMane;
 
-    private int kittensCount;
+    private final int kittensCount;
 
     public LionTestParametrized(String sex, boolean hasMane, int kittensCount) {
         this.sex = sex;
@@ -20,21 +20,21 @@ public class LionTestParametrized {
         this.kittensCount = kittensCount;
     }
 
-    @Before
-    public  void initMockito() {
-        MockitoAnnotations.openMocks(this);
-    }
-
     @Parameterized.Parameters
-    public  static Object [][] setLionSex () {
-        return new Object[][] {
+    public static Object[][] setLionSex() {
+        return new Object[][]{
                 {"Самец", true, 1},
                 {"Самка", false, 1}
         };
     }
 
+    @Before
+    public void initMockito() {
+        MockitoAnnotations.openMocks(this);
+    }
+
     @Test
-    public  void lionDoesHaveMane() throws Exception {
+    public void lionDoesHaveMane() throws Exception {
         Feline feline = new Feline();
         Lion lion = new Lion(feline, sex);
 
@@ -42,7 +42,7 @@ public class LionTestParametrized {
     }
 
     @Test
-    public void lionGetKittens() throws  Exception{
+    public void lionGetKittens() throws Exception {
         Feline feline = new Feline();
         Lion lion = new Lion(feline, sex);
 

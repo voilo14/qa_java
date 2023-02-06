@@ -13,24 +13,24 @@ public class AnimalTest {
     Animal animal;
 
     @Test
-    public void getFood() throws  Exception {
+    public void getFood() throws Exception {
         animal.getFood("Хищник");
         Mockito.verify(animal).getFood("Хищник");
     }
 
     @Test
-    public void notFelineGetFood() throws  Exception {
+    public void notFelineGetFood() throws Exception {
         animal.getFood("Травоядное");
         Mockito.verify(animal).getFood("Травоядное");
     }
 
     //Проверяем Exception класса Animal
     @Test
-    public  void animalClassException() {
+    public void animalClassException() {
         try {
             animal.getFood("Нечто");
         } catch (Exception exception) {
-            Assert.assertEquals("Неизвестный вид животного","Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
+            Assert.assertEquals("Неизвестный вид животного", "Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
         }
     }
 
